@@ -62,7 +62,6 @@ public class BasheGameActivity extends AppCompatActivity {
 
             }
         });
-
     }
     @OnClick(R.id.btn_player1_submit)
     public void onSubmitButton1Clicked(){
