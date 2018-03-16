@@ -20,20 +20,21 @@ public class BasheMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bashe_menu);
     }
-    Intent intent = new Intent(BasheMenuActivity.this, BasheGameActivity.class);
     @OnClick(R.id.btn_one_player)
     public void OnePlayerGameClicked(){
+        Intent intent = new Intent(BasheMenuActivity.this, BasheGameActivity.class);
         intent.putExtra("PlayerAmount", 1);
         startActivity(intent);
     }
     @OnClick(R.id.btn_two_players)
     public void TwoPlayersGameClicked(){
+        Intent intent = new Intent(BasheMenuActivity.this, BasheGameActivity.class);
         intent.putExtra("PlayerAmount", 2);
         startActivity(intent);
     }
     @OnClick(R.id.btn_back)
     public void BackButtonClicked(){
-        intent = new Intent(BasheMenuActivity.this, MainActivity.class);
+        Intent intent = new Intent(BasheMenuActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }
