@@ -2,11 +2,8 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <SeekBar
         android:id="@+id/sb_player1"
@@ -67,7 +64,6 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/btn_player1_submit"
         android:layout_marginBottom="64dp"
-        android:text="0"
         android:textSize="36sp" />
 
     <TextView
@@ -78,7 +74,6 @@
         android:layout_below="@+id/btn_player2_submit"
         android:layout_marginTop="64dp"
         android:rotation="180"
-        android:text="0"
         android:textSize="36sp" />
 
 </RelativeLayout>
