@@ -25,9 +25,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @OnClick(R.id.iv_game_two)
+    /*@OnClick(R.id.iv_game_two)
     public void OnClickImageTwo(){
         Intent intent = new Intent(this, DudeliGameActivity.class);
+        startActivity(intent);
+    }*/
+
+    @OnClick(R.id.iv_game_three)
+    public void OnClickImageThree(){
+        Intent intent = new Intent(this, EvenManiaGameActivity.class);
         startActivity(intent);
     }
 }
