@@ -26,6 +26,10 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".EvenManiaGameActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>
