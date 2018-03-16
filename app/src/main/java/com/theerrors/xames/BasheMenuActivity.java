@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -22,13 +23,16 @@ public class BasheMenuActivity extends AppCompatActivity {
     Button mBtnTwoPlayers;
     @BindView(R.id.btn_back)
     ImageButton mBtnBack;
+
     @BindView(R.id.tv_game_info)
     TextView mGameInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bashe_menu);
         ButterKnife.bind(this);
+
     }
     @OnClick(R.id.btn_one_player)
     public void OnePlayerGameClicked(){
