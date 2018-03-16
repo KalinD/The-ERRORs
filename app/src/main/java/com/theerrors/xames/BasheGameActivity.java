@@ -63,28 +63,6 @@ public class BasheGameActivity extends AppCompatActivity {
             }
         });
 
-       //mSubmitBtn2.setOnClickListener(new View.OnClickListener() {
-       //    @Override
-       //    public void onClick(View v) {
-       //        points -= mPlayer2Bar.getProgress() + 1;
-       //        mPointsTextView.setText(Integer.toString(points));
-       //        mPlayer2Bar.setEnabled(false);
-       //        mSubmitBtn2.setEnabled(false);
-       //        mPlayer1Bar.setEnabled(true);
-       //        mSubmitBtn1.setEnabled(true);
-       //    }
-       //});
-        /*mSubmitBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                points -= mPlayer1Bar.getProgress() + 1;
-                mPointsTextView.setText(Integer.toString(points));
-                mPlayer2Bar.setEnabled(true);
-                mSubmitBtn2.setEnabled(true);
-                mPlayer1Bar.setEnabled(false);
-                mSubmitBtn1.setEnabled(false);
-            }
-        });*/
     }
     @OnClick(R.id.btn_player1_submit)
     public void onSubmitButton1Clicked(){
