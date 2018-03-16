@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.theerrors.xames.BasheMenuActivity">
+    tools:context="com.theerrors.xames.DudeliMenuActivity">
     <Button
         android:id="@+id/btn_one_player"
         android:layout_width="wrap_content"
