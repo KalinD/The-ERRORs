@@ -52,7 +52,7 @@
                         android:fontFamily="cursive"
                         android:textColor="#000000"
                         android:textStyle="bold"
-                        android:text="Bashe Game" />
+                        android:text="Bachet Game" />
 
                 </LinearLayout>
                 <!--Dudeli game image and name label-->
