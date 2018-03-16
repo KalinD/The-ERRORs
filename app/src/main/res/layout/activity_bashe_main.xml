@@ -37,7 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/sb_player1"
-        android:layout_alignRight="@+id/tv_player2_points"/>
+        android:layout_alignRight="@+id/tv_player2_points"
+        />
 
     <Button
         android:id="@+id/btn_player1_submit"
