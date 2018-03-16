@@ -1,7 +1,13 @@
 package com.theerrors.xames;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -35,7 +41,7 @@ public class BasheGameActivity extends AppCompatActivity {
     @BindView(R.id.tv_p1_remaining_score) TextView mP1RemainingScore;
     @BindView(R.id.tv_p2_remaining_score) TextView mP2RemainingScore;
 
-    private void changeColors(int choice){
+    private void reverseColors(int choice){
         if(choice == 1){
             mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mSubmitBtn1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -60,6 +66,24 @@ public class BasheGameActivity extends AppCompatActivity {
             mSubmitBtn1.setTextColor(getResources().getColor(R.color.colorPrimary));
             mPlayer1Points.setTextColor(getResources().getColor(R.color.colorPrimary));
             mP1RemainingScore.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }
+
+    }
+    private void checkForAWin(){
+        if(points <= 0){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(BasheGameActivity.this);
+            builder.setMessage("Red player is the winner!\nCongratulations Red!");
+            builder.setTitle("Game Over!");
+            builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Intent intent = new Intent(BasheGameActivity.this,BasheMenuActivity.class);
+                    startActivity(intent);
+                }
+            });
+            AlertDialog endGame = builder.create();
+            endGame.show();
+
         }
 
     }
@@ -115,9 +139,11 @@ public class BasheGameActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_player1_submit)
     public void onSubmitButton1Clicked(){
-        changeColors(2);
+        reverseColors(2);
 
         points -= mPlayer1Bar.getProgress() + 1;
+        checkForAWin();
+
         mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mPlayer2Bar.setEnabled(true);
@@ -132,8 +158,11 @@ public class BasheGameActivity extends AppCompatActivity {
             else{
                 mPlayer2Bar.setProgress(rand.nextInt(5) + 1);
             }
+            reverseColors(1);
 
             points -= mPlayer2Bar.getProgress() + 1;
+
+            checkForAWin();
             mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
             mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
             mPlayer2Bar.setEnabled(false);
@@ -150,9 +179,11 @@ public class BasheGameActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_player2_submit)
     public void onSubmitButton2Clicked() {
-       changeColors(1);
+       reverseColors(1);
 
         points -= mPlayer2Bar.getProgress() + 1;
+
+        checkForAWin();
         mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mPlayer2Bar.setEnabled(false);

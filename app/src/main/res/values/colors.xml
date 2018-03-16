@@ -4,8 +4,5 @@
     <color name="colorPrimaryDark">#B71C1C</color>
     <color name="colorAccent">#90CAF9</color>
     <color name="white">#ffffff</color>
-    <color name="player1BaseColor">#3F51B5</color>
-    <color name="player2BaseColor">#4CAF50</color>
-    <color name="player1OnTurnColor">#1A237E</color>
-    <color name="player2OnTurnColor">#1B5E20</color>
+
 </resources>
