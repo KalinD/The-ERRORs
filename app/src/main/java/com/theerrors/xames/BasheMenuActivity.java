@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class BasheMenuActivity extends AppCompatActivity {
@@ -14,11 +16,12 @@ public class BasheMenuActivity extends AppCompatActivity {
     @BindView(R.id.btn_two_players)
     Button mBtnTwoPlayers;
     @BindView(R.id.btn_back)
-    Button mBtnBack;
+    ImageButton mBtnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bashe_menu);
+        ButterKnife.bind(BasheMenuActivity.this);
     }
     @OnClick(R.id.btn_one_player)
     public void OnePlayerGameClicked(){

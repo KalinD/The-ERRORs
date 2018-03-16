@@ -22,24 +22,25 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="26dp"/>
+        android:layout_marginTop="26dp"
+        android:rotation="180"/>
 
     <TextView
         android:id="@+id/tv_player2_points"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sb_player2"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:rotation="180"/>
 
     <TextView
         android:id="@+id/tv_player1_points"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/sb_player1"
-        android:layout_alignRight="@+id/tv_player2_points"
-        />
+        android:layout_alignRight="@+id/tv_player2_points"/>
 
     <Button
         android:id="@+id/btn_player1_submit"
@@ -47,9 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/tv_player1_points"
         android:layout_centerHorizontal="true"
-        android:text="@string/submit"
-
-        />
+        android:text="@string/submit"/>
 
     <Button
         android:id="@+id/btn_player2_submit"
@@ -59,15 +58,27 @@
         android:layout_alignStart="@+id/btn_player1_submit"
         android:layout_below="@+id/tv_player2_points"
         android:text="@string/submit"
-        />
+        android:rotation="180"/>
 
     <TextView
-        android:id="@+id/tv_points"
+        android:id="@+id/tv_p1_remaining_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="36sp"
-        />
+        android:layout_above="@+id/btn_player1_submit"
+        android:layout_marginBottom="64dp"
+        android:text="0"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/tv_p2_remaining_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btn_player2_submit"
+        android:layout_marginTop="64dp"
+        android:rotation="180"
+        android:text="0"
+        android:textSize="36sp" />
 
 </RelativeLayout>
