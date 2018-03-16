@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @OnClick(R.id.iv_game_one)
     public void onClickGameOne(){
-        Intent intent = new Intent(this, BasheMenuActivity.class);
+        Intent intent = new Intent(MainActivity.this, BasheMenuActivity.class);
         startActivity(intent);
     }
 
@@ -29,6 +29,5 @@ public class MainActivity extends AppCompatActivity {
     public void OnClickImageTwo(){
         Intent intent = new Intent(this, DudeliGameActivity.class);
         startActivity(intent);
-
     }
 }
