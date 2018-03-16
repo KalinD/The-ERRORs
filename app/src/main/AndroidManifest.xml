@@ -20,16 +20,17 @@
         </activity>
         <activity
             android:name=".BasheGameActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DudeliGameActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".EvenManiaGameActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".BasheMenuActivity"
-            android:screenOrientation="portrait"></activity>
-
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BasheMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".DudeliMenuActivity"></activity>
     </application>
 
 </manifest>

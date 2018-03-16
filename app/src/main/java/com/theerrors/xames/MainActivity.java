@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.iv_game_two)
     public void OnClickImageTwo(){
-        Intent intent = new Intent(this, DudeliGameActivity.class);
+        Intent intent = new Intent(this, DudeliMenuActivity.class);
         startActivity(intent);
     }
 }
