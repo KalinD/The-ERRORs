@@ -3,6 +3,7 @@ package com.theerrors.xames;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
@@ -15,22 +16,65 @@ import butterknife.OnClick;
 
 
 public class BasheGameActivity extends AppCompatActivity {
+
     int points = 21;
     boolean singlePlayer;
     Random rand = new Random();
+
+    @BindView(R.id.rl_player1) RelativeLayout mRelativeLayout1;
+    @BindView(R.id.rl_player2) RelativeLayout mRelativeLayout2;
+
     @BindView(R.id.btn_player1_submit) Button mSubmitBtn1;
     @BindView(R.id.btn_player2_submit) Button mSubmitBtn2;
+
     @BindView(R.id.sb_player1) SeekBar mPlayer1Bar;
     @BindView(R.id.sb_player2) SeekBar mPlayer2Bar;
+
     @BindView(R.id.tv_player1_points) TextView mPlayer1Points;
     @BindView(R.id.tv_player2_points) TextView mPlayer2Points;
     @BindView(R.id.tv_p1_remaining_score) TextView mP1RemainingScore;
     @BindView(R.id.tv_p2_remaining_score) TextView mP2RemainingScore;
+
+    private void changeColors(int choice){
+        if(choice == 1){
+            mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mSubmitBtn1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mSubmitBtn1.setTextColor(getResources().getColor(R.color.white));
+            mPlayer1Points.setTextColor(getResources().getColor(R.color.white));
+            mP1RemainingScore.setTextColor(getResources().getColor(R.color.white));
+
+            mRelativeLayout2.setBackgroundColor(getResources().getColor(R.color.white));
+            mSubmitBtn2.setBackgroundColor(getResources().getColor(R.color.white));
+            mSubmitBtn2.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mPlayer2Points.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mP2RemainingScore.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }else{
+            mRelativeLayout2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mSubmitBtn2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mSubmitBtn2.setTextColor(getResources().getColor(R.color.white));
+            mPlayer2Points.setTextColor(getResources().getColor(R.color.white));
+            mP2RemainingScore.setTextColor(getResources().getColor(R.color.white));
+
+            mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.white));
+            mSubmitBtn1.setBackgroundColor(getResources().getColor(R.color.white));
+            mSubmitBtn1.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mPlayer1Points.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mP1RemainingScore.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bashe_main);
         ButterKnife.bind(this);
+
+        mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mSubmitBtn1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mSubmitBtn1.setTextColor(getResources().getColor(R.color.white));
+        mPlayer1Points.setTextColor(getResources().getColor(R.color.white));
+        mP1RemainingScore.setTextColor(getResources().getColor(R.color.white));
+
         mPlayer1Bar.setMax(4);
         mPlayer2Bar.setMax(4);
         mPlayer2Bar.setEnabled(false);
@@ -71,6 +115,8 @@ public class BasheGameActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_player1_submit)
     public void onSubmitButton1Clicked(){
+        changeColors(2);
+
         points -= mPlayer1Bar.getProgress() + 1;
         mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
@@ -104,6 +150,8 @@ public class BasheGameActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_player2_submit)
     public void onSubmitButton2Clicked() {
+       changeColors(1);
+
         points -= mPlayer2Bar.getProgress() + 1;
         mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
