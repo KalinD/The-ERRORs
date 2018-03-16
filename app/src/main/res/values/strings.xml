@@ -2,4 +2,10 @@
     <string name="app_name">Xames</string>
     <string name="logic_wall">Wall Of Logic</string>
     <string name="submit">Submit</string>
+    <string name="BachetInfo">
+        Bachet game is named after french mathematician, poet and translator Claude Gaspard Bachet de Méziriac (1581 - 1638).
+        This game is played by two players. A player looses when on his turn the score becomes 0.
+
+
+    </string>
 </resources>
