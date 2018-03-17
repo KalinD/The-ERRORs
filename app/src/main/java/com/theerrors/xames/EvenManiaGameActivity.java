@@ -108,26 +108,27 @@ public class EvenManiaGameActivity extends AppCompatActivity {
         if (p2Value.length() >= 1) {
             p2_choice_num = Integer.parseInt(p2Value);
 
-
             int predicted_location = moving_thing_x - (moving_thing_y - one_graphBox_size * p1_choice_num);
 
-            if (predicted_location >= boundary_value * one_graphBox_size) {
-                int more_than_needed = predicted_location - boundary_value * one_graphBox_size;
-                moving_thing_x = moving_thing_x + (p1_choice_num * one_graphBox_size - more_than_needed);
-
-            } else {
-                moving_thing_x += one_graphBox_size * p1_choice_num;
-            }
 
             TranslateAnimation move = new TranslateAnimation(moving_thing_x + 0, moving_thing_x + 0, moving_thing_y + 0, moving_thing_y - (one_graphBox_size * p2_choice_num));
             move.setDuration(1000);
             move.setFillAfter(true);
-            image_moving_thing.startAnimation(move);
 
+
+            if (predicted_location >= boundary_value * one_graphBox_size) {
+                int more_than_needed = predicted_location - boundary_value * one_graphBox_size;
+                moving_thing_y =  (p2_choice_num * one_graphBox_size - more_than_needed) - moving_thing_y;
+
+            }else{
+                moving_thing_y -= one_graphBox_size * p2_choice_num;
+
+            }
+            CheckWin();
+            image_moving_thing.startAnimation(move);
         }
 
 
-        moving_thing_y -= one_graphBox_size * p2_choice_num;
 
     }
 
