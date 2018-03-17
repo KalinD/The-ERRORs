@@ -55,7 +55,7 @@ public class EvenManiaGameActivity extends AppCompatActivity {
             builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent = new Intent(EvenManiaGameActivity.this, MainActivity.class);
+                    Intent intent = new Intent(EvenManiaGameActivity.this, EvenManiaGameActivity.class);
                     startActivity(intent);
                 }
             });
@@ -70,7 +70,7 @@ public class EvenManiaGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_even_mania_main);
         ButterKnife.bind(this);
-
+        p2_choice.setEnabled(false);
 
     }
 
@@ -96,7 +96,6 @@ public class EvenManiaGameActivity extends AppCompatActivity {
             if(predicted_location >= boundary_value * one_graphBox_size){
                 int more_than_needed = predicted_location - boundary_value * one_graphBox_size;
                 moving_thing_x = moving_thing_x + (p1_choice_num * one_graphBox_size - more_than_needed);
-                Log.d("EvenMania", "moving thing x: " + moving_thing_x + ", more than needed" + more_than_needed);
 
             }else{
 
@@ -104,9 +103,10 @@ public class EvenManiaGameActivity extends AppCompatActivity {
             }
 
 
-            image_moving_thing.startAnimation(move);
-
             CheckWin();
+            image_moving_thing.startAnimation(move);
+            p1_choice.setEnabled(false);
+            p2_choice.setEnabled(true);
         }
 
     }
@@ -120,7 +120,7 @@ public class EvenManiaGameActivity extends AppCompatActivity {
         ImageView image_moving_thing = (ImageView) findViewById(R.id.image_moving_thing); //image_moving_thing
 
 
-        if (p2Value.length() >= 1) {
+        if (p2Value.length() == 1) {
             p2_choice_num = Integer.parseInt(p2Value);
 
             int predicted_location = moving_thing_x - (moving_thing_y - one_graphBox_size * p1_choice_num);
@@ -132,14 +132,15 @@ public class EvenManiaGameActivity extends AppCompatActivity {
             if (predicted_location >= boundary_value * one_graphBox_size) {
                 int more_than_needed = predicted_location - boundary_value * one_graphBox_size;
                 moving_thing_y -=  (p2_choice_num * one_graphBox_size - more_than_needed) ; //CHANGED
-
-                Log.d("EvenMania", "moving thing y: " + moving_thing_y + ", more than needed" + more_than_needed);
             }else{
                 moving_thing_y -= one_graphBox_size * p2_choice_num;
 
 
             }
+
             CheckWin();
+            p1_choice.setEnabled(true);
+            p2_choice.setEnabled(false);
             image_moving_thing.startAnimation(move);
         }
 

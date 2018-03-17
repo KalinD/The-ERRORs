@@ -25,8 +25,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/Board_helper"
-            android:layout_width="376dp"
-            android:layout_height="392dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
