@@ -27,7 +27,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".EvenManiaGameActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Even Mania Game"/>
         <activity
             android:name=".BasheMenuActivity"
             android:screenOrientation="portrait"

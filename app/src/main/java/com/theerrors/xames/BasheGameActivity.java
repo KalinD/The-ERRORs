@@ -86,26 +86,34 @@ public class BasheGameActivity extends AppCompatActivity {
         }
 
     }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bashe_main);
         ButterKnife.bind(this);
+        singlePlayer = (getIntent().getExtras().getInt("PlayerAmount") == 1) ? true : false;
         mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         mSubmitBtn1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         mSubmitBtn1.setTextColor(getResources().getColor(R.color.white));
         mPlayer1Points.setTextColor(getResources().getColor(R.color.white));
         mP1RemainingScore.setTextColor(getResources().getColor(R.color.white));
 
+
+
         mPlayer1Bar.setMax(4);
         mPlayer2Bar.setMax(4);
+
         mPlayer2Bar.setEnabled(false);
         mSubmitBtn2.setEnabled(false);
+
         mPlayer1Points.setText(Integer.toString(mPlayer1Bar.getProgress() + 1));
         mPlayer2Points.setText(Integer.toString(mPlayer2Bar.getProgress() + 1));
         mP1RemainingScore.setText(Integer.toString(points));
         mP2RemainingScore.setText(Integer.toString(points));
-        singlePlayer = (getIntent().getExtras().getInt("PlayerAmount") == 1) ? true : false;
+
         mPlayer1Bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
@@ -148,6 +156,7 @@ public class BasheGameActivity extends AppCompatActivity {
         mSubmitBtn2.setEnabled(true);
         mPlayer1Bar.setEnabled(false);
         mSubmitBtn1.setEnabled(false);
+
         if(singlePlayer){
             boolean hardMode = rand.nextInt(2) + 1 == 1 ? false : true;
             if(hardMode){
@@ -186,5 +195,6 @@ public class BasheGameActivity extends AppCompatActivity {
         mSubmitBtn2.setEnabled(false);
         mPlayer1Bar.setEnabled(true);
         mSubmitBtn1.setEnabled(true);
+
     }
 }
