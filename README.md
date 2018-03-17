@@ -17,3 +17,27 @@ At each turn the player can take from one to five objects from the common group.
 Each of you take turns and the goal is to make your opponent take the last object.
 If he takes he last object, you are the winner! Woohoo!
 
+## Dudeney Game
+
+One after another are playing two players.
+At each turn, each of them can complete the common group with objects, by placing from 1 to a number objects, but their amount must not be equal to the quantity the previous player has put up. 
+The winner is the player, who in his turn succeed in decreasing the amount of objects in the group to a given number or to create a situation, where the opponent always exceeds the given value.
+
+## Even Mania
+
+This game is also played by two people.
+In the beginning there is one group, that contains odd number of objects.
+Both of the players control one circular object in a coordinate system.
+They have to input numbers from 1 to 5 to move it in specific directions.
+Player 1 moves the object on the X axis, and Player 2 - on the Y axis.
+When one's turn comes, he chooses a number from one to five and this way he collects that number of objects.
+The game ends when the object, the players are moving, passes the diagonal line, made by the two biggest X and Y coordinates (15 - 15).
+
+##Fibonacci Nim
+Two people playing.
+One after another they are choosing objects from the common group.
+The first player can choose any number, but not all of them.
+After the second move players can take random quantity of numbers, that are not more than twice bigger than the previous number.
+ The winner is the person, who takes all the other objects.
+
+
