@@ -22,7 +22,6 @@ import butterknife.OnClick;
 
 
 public class BasheGameActivity extends AppCompatActivity {
-
     int points = 21;
     boolean singlePlayer;
     Random rand = new Random();
@@ -71,6 +70,10 @@ public class BasheGameActivity extends AppCompatActivity {
     }
     private void checkForAWin(){
         if(points <= 0){
+            mSubmitBtn1.setEnabled(false);
+            mSubmitBtn2.setEnabled(false);
+            mPlayer1Bar.setEnabled(false);
+            mPlayer2Bar.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(BasheGameActivity.this);
             builder.setMessage("Red player is the winner!\nCongratulations Red!");
             builder.setTitle("Game Over!");
@@ -84,10 +87,7 @@ public class BasheGameActivity extends AppCompatActivity {
             AlertDialog endGame = builder.create();
             endGame.show();
         }
-
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +101,6 @@ public class BasheGameActivity extends AppCompatActivity {
         mPlayer1Points.setTextColor(getResources().getColor(R.color.white));
         mP1RemainingScore.setTextColor(getResources().getColor(R.color.white));
 
-
-
         mPlayer1Bar.setMax(4);
         mPlayer2Bar.setMax(4);
 
@@ -111,6 +109,7 @@ public class BasheGameActivity extends AppCompatActivity {
 
         mPlayer1Points.setText(Integer.toString(mPlayer1Bar.getProgress() + 1));
         mPlayer2Points.setText(Integer.toString(mPlayer2Bar.getProgress() + 1));
+
         mP1RemainingScore.setText(Integer.toString(points));
         mP2RemainingScore.setText(Integer.toString(points));
 
@@ -146,17 +145,17 @@ public class BasheGameActivity extends AppCompatActivity {
     @OnClick(R.id.btn_player1_submit)
     public void onSubmitButton1Clicked(){
         reverseColors(2);
-
         points -= mPlayer1Bar.getProgress() + 1;
+        if(points < 0 && singlePlayer){
+            reverseColors(1);
+        }
         checkForAWin();
-
         mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mPlayer2Bar.setEnabled(true);
         mSubmitBtn2.setEnabled(true);
         mPlayer1Bar.setEnabled(false);
         mSubmitBtn1.setEnabled(false);
-
         if(singlePlayer){
             boolean hardMode = rand.nextInt(2) + 1 == 1 ? false : true;
             if(hardMode){
@@ -166,9 +165,10 @@ public class BasheGameActivity extends AppCompatActivity {
                 mPlayer2Bar.setProgress(rand.nextInt(5) + 1);
             }
             reverseColors(1);
-
             points -= mPlayer2Bar.getProgress() + 1;
-
+            if(points < 0){
+                reverseColors(2);
+            }
             checkForAWin();
             mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
             mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
@@ -195,6 +195,5 @@ public class BasheGameActivity extends AppCompatActivity {
         mSubmitBtn2.setEnabled(false);
         mPlayer1Bar.setEnabled(true);
         mSubmitBtn1.setEnabled(true);
-
     }
 }
