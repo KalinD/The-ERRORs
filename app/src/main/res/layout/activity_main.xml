@@ -38,11 +38,12 @@
                         android:id="@+id/iv_game_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorAccent"
                         android:minWidth="200dp"
                         android:minHeight="300dp"
+                        android:scaleType="centerCrop"
                         android:layout_marginTop="26dp"
                         android:clickable="true"
+                        android:src="@drawable/bachet_menu_screenshot"
                         />
                     <TextView
                         android:layout_width="wrap_content"

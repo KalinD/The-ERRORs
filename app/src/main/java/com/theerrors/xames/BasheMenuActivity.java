@@ -1,6 +1,7 @@
 package com.theerrors.xames;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +28,7 @@ public class BasheMenuActivity extends AppCompatActivity {
     @BindView(R.id.tv_game_info)
     TextView mGameInfo;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,12 @@ public class BasheMenuActivity extends AppCompatActivity {
     @OnClick(R.id.btn_back)
     public void BackButtonClicked(){
         Intent intent = new Intent(BasheMenuActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(BasheMenuActivity.this,MainActivity.class);
         startActivity(intent);
     }
     @Override
