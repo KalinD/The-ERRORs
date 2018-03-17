@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
 
     <TextView
         android:id="@+id/txt_wall"
@@ -17,7 +19,8 @@
         android:textSize="45sp" />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -43,7 +46,7 @@
                         android:scaleType="centerCrop"
                         android:layout_marginTop="26dp"
                         android:clickable="true"
-                        android:src="@drawable/bachet_menu_screenshot"
+                        android:src="@drawable/game_menu_screenshot"
 
                         />
                     <TextView
@@ -67,11 +70,12 @@
                        android:id="@+id/iv_game_two"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:background="@color/colorAccent"
+                       android:background="@color/white"
                        android:minWidth="200dp"
                        android:minHeight="300dp"
                        android:layout_marginTop="68dp"
                        android:layout_marginLeft="16dp"
+                       android:src="@drawable/game_menu_screenshot"
                        android:clickable="true"
                        />
                    <TextView

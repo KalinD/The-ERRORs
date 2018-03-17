@@ -19,8 +19,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView mIvGameOne;
     @BindView(R.id.iv_game_two)
     ImageView mIvGameTwo;
+    @BindView(R.id.iv_game_three)
+    ImageView getmIvGameThree;
+    private final int[] imageArrayGameOne = { R.drawable.game_menu_screenshot, R.drawable.bachet_game_screenshot};
 
-    private final int[] imageArrayGameOne = { R.drawable.bachet_menu_screenshot, R.drawable.bachet_game_screenshot};
+    private final int[] imageArrayGameTwo = {R.drawable.game_menu_screenshot,R.drawable.dudeney_game_screenshot};
 
     public void changingImages(final int[] images,final ImageView iv) {
         final Handler handler = new Handler();
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         changingImages(imageArrayGameOne,mIvGameOne);
+        changingImages(imageArrayGameTwo,mIvGameTwo);
     }
 
     @OnClick(R.id.iv_game_one)
