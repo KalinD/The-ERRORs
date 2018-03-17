@@ -5,13 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import butterknife.BindView;
@@ -232,19 +229,18 @@ public class DudeliGameActivity extends AppCompatActivity {
     }
     public void CheckForWinner(){
         if(points == 37){
-            Log.d("String cfw",mP1Points.getText().toString());
-            if(mP1Points.getText().toString() == "37"){
-                reverseColors(2);
-            }else{
+            if(mP1Points.getText().toString().equals("37")){
                 reverseColors(1);
+            }else{
+                reverseColors(2);
             }
             WinerScreen();
         }
         else if(points > 37){
             if(Integer.parseInt(mP1Points.getText().toString()) > 37){
-                reverseColors(1);
-            }else{
                 reverseColors(2);
+            }else{
+                reverseColors(1);
             }
             WinerScreen();
         }
