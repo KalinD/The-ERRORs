@@ -44,6 +44,7 @@
                         android:layout_marginTop="26dp"
                         android:clickable="true"
                         android:src="@drawable/bachet_menu_screenshot"
+
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -80,7 +81,7 @@
                        android:fontFamily="cursive"
                        android:textColor="@color/colorPrimary"
                        android:textStyle="bold"
-                       android:text="Dudeli Game"
+                       android:text="Dudeney Game"
                        android:textSize="26sp" />
                </LinearLayout>
 
