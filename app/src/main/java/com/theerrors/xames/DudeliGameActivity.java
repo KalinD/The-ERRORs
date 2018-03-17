@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,6 +21,10 @@ public class DudeliGameActivity extends AppCompatActivity {
     int points = 0;
     boolean singlePlayer;
     Random rand = new Random();
+
+    @BindView(R.id.rl_player1_game2) RelativeLayout mRelativeLayout1;
+    @BindView(R.id.rl_player2_game2) RelativeLayout mRelativeLayout2;
+
     @BindView(R.id.btn_p1_1) Button mBtn1P1;
     @BindView(R.id.btn_p1_2) Button mBtn2P1;
     @BindView(R.id.btn_p1_3) Button mBtn3P1;
@@ -30,8 +35,11 @@ public class DudeliGameActivity extends AppCompatActivity {
     @BindView(R.id.btn_p2_3) Button mBtn3P2;
     @BindView(R.id.btn_p2_4) Button mBtn4P2;
     @BindView(R.id.btn_p2_5) Button mBtn5P2;
+
     @BindView(R.id.tv_player1_points) TextView mP1Points;
     @BindView(R.id.tv_player2_points) TextView mP2Points;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,23 @@ public class DudeliGameActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mP1Points.setText(Integer.toString(points));
         mP2Points.setText(Integer.toString(points));
+
+        mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mBtn1P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mBtn2P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mBtn3P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mBtn4P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        mBtn5P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+        mBtn1P1.setTextColor(getResources().getColor(R.color.white));
+        mBtn2P1.setTextColor(getResources().getColor(R.color.white));
+        mBtn3P1.setTextColor(getResources().getColor(R.color.white));
+        mBtn4P1.setTextColor(getResources().getColor(R.color.white));
+        mBtn5P1.setTextColor(getResources().getColor(R.color.white));
+        mP1Points.setTextColor(getResources().getColor(R.color.white));
+
+
+
     }
     @OnClick(R.id.btn_p1_1)
     public void OnP1Btn1Clicked(){
@@ -48,6 +73,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P2.setEnabled(true);
         mBtn4P2.setEnabled(true);
         mBtn5P2.setEnabled(true);
+        reverseColors(2);
         BtnsP1SetDisabled();
         points += 1;
         mP1Points.setText(Integer.toString(points));
@@ -65,6 +91,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P2.setEnabled(true);
         mBtn4P2.setEnabled(true);
         mBtn5P2.setEnabled(true);
+        reverseColors(2);
         BtnsP1SetDisabled();
         points += 2;
         mP1Points.setText(Integer.toString(points));
@@ -82,6 +109,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn1P2.setEnabled(true);
         mBtn4P2.setEnabled(true);
         mBtn5P2.setEnabled(true);
+        reverseColors(2);
         BtnsP1SetDisabled();
         points += 3;
         mP1Points.setText(Integer.toString(points));
@@ -99,6 +127,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P2.setEnabled(true);
         mBtn1P2.setEnabled(true);
         mBtn5P2.setEnabled(true);
+        reverseColors(2);
         BtnsP1SetDisabled();
         points += 4;
         mP1Points.setText(Integer.toString(points));
@@ -116,6 +145,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P2.setEnabled(true);
         mBtn4P2.setEnabled(true);
         mBtn1P2.setEnabled(true);
+        reverseColors(2);
         BtnsP1SetDisabled();
         points += 5;
         mP1Points.setText(Integer.toString(points));
@@ -133,6 +163,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P1.setEnabled(true);
         mBtn4P1.setEnabled(true);
         mBtn5P1.setEnabled(true);
+        reverseColors(1);
         BtnsP2SetDisabled();
         points += 1;
         mP2Points.setText(Integer.toString(points));
@@ -147,6 +178,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P1.setEnabled(true);
         mBtn4P1.setEnabled(true);
         mBtn5P1.setEnabled(true);
+        reverseColors(1);
         BtnsP2SetDisabled();
         points += 2;
         mP2Points.setText(Integer.toString(points));
@@ -161,6 +193,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn1P1.setEnabled(true);
         mBtn4P1.setEnabled(true);
         mBtn5P1.setEnabled(true);
+        reverseColors(1);
         BtnsP2SetDisabled();
         points += 3;
         mP2Points.setText(Integer.toString(points));
@@ -175,6 +208,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P1.setEnabled(true);
         mBtn1P1.setEnabled(true);
         mBtn5P1.setEnabled(true);
+        reverseColors(1);
         BtnsP2SetDisabled();
         points += 4;
         mP2Points.setText(Integer.toString(points));
@@ -189,6 +223,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn3P1.setEnabled(true);
         mBtn4P1.setEnabled(true);
         mBtn1P1.setEnabled(true);
+        reverseColors(1);
         BtnsP2SetDisabled();
         points += 5;
         mP2Points.setText(Integer.toString(points));
@@ -273,4 +308,73 @@ public class DudeliGameActivity extends AppCompatActivity {
     public void Winner() {
         //TODO winner function
     }
+
+    private void reverseColors(int choice){
+        if(choice == 1){
+            mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn1P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn2P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn3P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn4P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn5P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+            mBtn1P1.setTextColor(getResources().getColor(R.color.white));
+            mBtn2P1.setTextColor(getResources().getColor(R.color.white));
+            mBtn3P1.setTextColor(getResources().getColor(R.color.white));
+            mBtn4P1.setTextColor(getResources().getColor(R.color.white));
+            mBtn5P1.setTextColor(getResources().getColor(R.color.white));
+
+            mP1Points.setTextColor(getResources().getColor(R.color.white));
+
+
+            mRelativeLayout2.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn1P2.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn2P2.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn3P2.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn4P2.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn5P2.setBackgroundColor(getResources().getColor(R.color.white));
+
+            mBtn1P2.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn2P2.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn3P2.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn4P2.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn5P2.setTextColor(getResources().getColor(R.color.colorPrimary));
+
+            mP2Points.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }else{
+            mRelativeLayout2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn1P2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn2P2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn3P2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn4P2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            mBtn5P2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+            mBtn1P2.setTextColor(getResources().getColor(R.color.white));
+            mBtn2P2.setTextColor(getResources().getColor(R.color.white));
+            mBtn3P2.setTextColor(getResources().getColor(R.color.white));
+            mBtn4P2.setTextColor(getResources().getColor(R.color.white));
+            mBtn5P2.setTextColor(getResources().getColor(R.color.white));
+
+            mP2Points.setTextColor(getResources().getColor(R.color.white));
+
+
+            mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn1P1.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn2P1.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn3P1.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn4P1.setBackgroundColor(getResources().getColor(R.color.white));
+            mBtn5P1.setBackgroundColor(getResources().getColor(R.color.white));
+
+            mBtn1P1.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn2P1.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn3P1.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn4P1.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mBtn5P1.setTextColor(getResources().getColor(R.color.colorPrimary));
+
+            mP1Points.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }
+
+    }
+
 }
+
