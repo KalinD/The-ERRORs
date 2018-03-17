@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="cursive"
-                        android:text="Bachet Game"
+                        android:text="@string/bachet_title"
                         android:textColor="@color/colorPrimary"
                         android:textSize="26sp"
                         android:textStyle="bold" />
@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="cursive"
-                        android:text="Dudeney Game"
+                        android:text="@string/dudeney_title"
                         android:textColor="@color/colorPrimary"
                         android:textSize="26sp"
                         android:textStyle="bold" />
@@ -121,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="cursive"
-                        android:text="EvenMania Game"
+                        android:text="@string/even_mania_title"
                         android:textColor="@color/colorPrimary"
                         android:textSize="26sp"
                         android:textStyle="bold" />
