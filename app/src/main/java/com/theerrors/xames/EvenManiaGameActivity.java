@@ -81,7 +81,9 @@ public class EvenManiaGameActivity extends AppCompatActivity {
     public void onPlayer1Input() {
         choice1 = (EditText) findViewById(R.id.p1_choice);
 
-        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_moving_thing);
+
+        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_board); //image_moving_thing
+
 
         String p1Value = choice1.getText().toString();
 
@@ -94,12 +96,21 @@ public class EvenManiaGameActivity extends AppCompatActivity {
 
             int predicted_location = (moving_thing_x + one_graphBox_size * p1_choice_num) - moving_thing_y;
 
+<<<<<<< HEAD
             if(predicted_location >= boundary_value * one_graphBox_size){
                 int more_than_needed = predicted_location - boundary_value * one_graphBox_size;
                 moving_thing_x = moving_thing_x + (p1_choice_num * one_graphBox_size - more_than_needed);
                 Log.d("EvenMania", "moving thing x: " + moving_thing_x + ", more than needed" + more_than_needed);
 
             }else{
+=======
+            if (predicted_location >= boundary_value * one_graphBox_size) {
+                int more_than_needed = predicted_location - boundary_value * one_graphBox_size;
+                moving_thing_x = moving_thing_x + (p1_choice_num * one_graphBox_size - more_than_needed);
+                Log.d("EvenMania", "" + moving_thing_x);
+
+            } else {
+>>>>>>> fe7d707e19f004ba471e94321c1693a58b897017
                 moving_thing_x += one_graphBox_size * p1_choice_num;
             }
 
@@ -116,25 +127,44 @@ public class EvenManiaGameActivity extends AppCompatActivity {
 
         choice2 = (EditText) findViewById(R.id.p2_choice);
         String p2Value = choice2.getText().toString();
-        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_moving_thing);
+
+        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_board); //image_moving_thing
+
 
         if (p2Value.length() >= 1) {
             p2_choice_num = Integer.parseInt(p2Value);
 
             int predicted_location = moving_thing_x - (moving_thing_y - one_graphBox_size * p1_choice_num);
+<<<<<<< HEAD
+=======
 
+>>>>>>> fe7d707e19f004ba471e94321c1693a58b897017
 
             TranslateAnimation move = new TranslateAnimation(moving_thing_x + 0, moving_thing_x + 0, moving_thing_y + 0, moving_thing_y - (one_graphBox_size * p2_choice_num));
             move.setDuration(1000);
             move.setFillAfter(true);
 
+<<<<<<< HEAD
+            TranslateAnimation move = new TranslateAnimation(moving_thing_x + 0, moving_thing_x + 0, moving_thing_y + 0, moving_thing_y - (one_graphBox_size * p2_choice_num));
+            move.setDuration(1000);
+            move.setFillAfter(true);
 
-            if(predicted_location >= boundary_value * one_graphBox_size){
+=======
+>>>>>>> fe7d707e19f004ba471e94321c1693a58b897017
+
+            if (predicted_location >= boundary_value * one_graphBox_size) {
                 int more_than_needed = predicted_location - boundary_value * one_graphBox_size;
                 moving_thing_y =  (p2_choice_num * one_graphBox_size - more_than_needed) - moving_thing_y;
+<<<<<<< HEAD
                 Log.d("EvenMania", "moving thing y: " + moving_thing_y + ", more than needed" + more_than_needed);
             }else{
                 moving_thing_y -= one_graphBox_size * p2_choice_num;
+=======
+
+            }else{
+                moving_thing_y -= one_graphBox_size * p2_choice_num;
+
+>>>>>>> fe7d707e19f004ba471e94321c1693a58b897017
             }
             CheckWin();
             image_moving_thing.startAnimation(move);

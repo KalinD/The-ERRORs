@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://D:\Disk D\~~Programming~~\Projects\Java\Something\The-ERRORs\HackTues2018.iml" filepath="D:\Disk D\~~Programming~~\Projects\Java\Something\The-ERRORs\HackTues2018.iml" />
       <module fileurl="file://$PROJECT_DIR$/The-ERRORs.iml" filepath="$PROJECT_DIR$/The-ERRORs.iml" />
       <module fileurl="file://D:\Android\HackTues2018\The-ERRORs.iml" filepath="D:\Android\HackTues2018\The-ERRORs.iml" />
       <module fileurl="file://$PROJECT_DIR$/../temp_just_for_try/The-ERRORs/app/app.iml" filepath="$PROJECT_DIR$/../temp_just_for_try/The-ERRORs/app/app.iml" />
+=======
+
+      <module fileurl="file://$PROJECT_DIR$/HackTues2018.iml" filepath="$PROJECT_DIR$/HackTues2018.iml" />
+
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+>>>>>>> fe7d707e19f004ba471e94321c1693a58b897017
     </modules>
   </component>
 </project>

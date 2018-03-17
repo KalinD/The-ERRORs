@@ -1,14 +1,19 @@
 package com.theerrors.xames;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 
 
-
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,36 +26,15 @@ public class MainActivity extends AppCompatActivity {
     ImageView mIvGameTwo;
     @BindView(R.id.iv_game_three)
     ImageView getmIvGameThree;
-    private final int[] imageArrayGameOne = { R.drawable.game_menu_screenshot, R.drawable.bachet_game_screenshot};
-
-    private final int[] imageArrayGameTwo = {R.drawable.game_menu_screenshot,R.drawable.dudeney_game_screenshot};
-
-    public void changingImages(final int[] images,final ImageView iv) {
-        final Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
-            int i = 0;
-
-            public void run() {
-                iv.setImageResource(images[i]);
-                i++;
-                if (i > images.length - 1) {
-                    i = 0;
-                }
-                handler.postDelayed(this, 2000);
-
-            }
-
-        };
-        handler.postDelayed(runnable, 2000);
-    }
+    MediaPlayer backgroundMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        backgroundMusic = MediaPlayer.create(MainActivity.this, R.raw.tick_tock_game);
         ButterKnife.bind(this);
-        changingImages(imageArrayGameOne,mIvGameOne);
-        changingImages(imageArrayGameTwo,mIvGameTwo);
+        backgroundMusic.start();
     }
 
     @OnClick(R.id.iv_game_one)
@@ -61,14 +45,53 @@ public class MainActivity extends AppCompatActivity {
 
 
     @OnClick(R.id.iv_game_two)
-    public void OnClickImageTwo(){
+    public void OnClickImageTwo() {
         Intent intent = new Intent(this, DudeliMenuActivity.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.iv_game_three)
-    public void OnClickImageThree(){
+    public void OnClickImageThree() {
         Intent intent = new Intent(this, EvenManiaGameActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.language_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.bulgarian_option){
+
+            String languageToLoad  = "bg";
+            Locale locale = new Locale(languageToLoad);
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            this.getResources().updateConfiguration(config,this.getResources().getDisplayMetrics());
+
+
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }else{
+            String languageToLoad  = "en";
+            Locale locale = new Locale(languageToLoad);
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            this.getResources().updateConfiguration(config,this.getResources().getDisplayMetrics());
+
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

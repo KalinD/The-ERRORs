@@ -36,35 +36,41 @@ public class BasheMenuActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
     }
+
     @OnClick(R.id.btn_one_player)
-    public void OnePlayerGameClicked(){
+    public void OnePlayerGameClicked() {
         Intent intent = new Intent(BasheMenuActivity.this, BasheGameActivity.class);
         intent.putExtra("PlayerAmount", 1);
         startActivity(intent);
     }
+
     @OnClick(R.id.btn_two_players)
-    public void TwoPlayersGameClicked(){
+    public void TwoPlayersGameClicked() {
         Intent intent = new Intent(BasheMenuActivity.this, BasheGameActivity.class);
         intent.putExtra("PlayerAmount", 2);
         startActivity(intent);
     }
+
     @OnClick(R.id.btn_back)
-    public void BackButtonClicked(){
+    public void BackButtonClicked() {
         Intent intent = new Intent(BasheMenuActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(BasheMenuActivity.this,MainActivity.class);
+        Intent intent = new Intent(BasheMenuActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bashe_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
