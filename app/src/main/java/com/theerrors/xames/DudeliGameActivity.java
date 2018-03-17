@@ -261,9 +261,8 @@ public class DudeliGameActivity extends AppCompatActivity {
                 reverseColors(1);
             } else {
                 reverseColors(2);
-                WinerScreen();
-
             }
+            WinerScreen();
         } else if (points > 37) {
             if (Integer.parseInt(mP1Points.getText().toString()) > 37) {
                 reverseColors(2);
