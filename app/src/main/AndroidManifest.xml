@@ -21,23 +21,23 @@
         <activity
             android:name=".BasheGameActivity"
             android:screenOrientation="portrait"
-            android:label="Bachet Game"/>
+            android:label="@string/bachet_title"/>
         <activity
             android:name=".DudeliGameActivity"
             android:screenOrientation="portrait"
-            android:label="Dudeney Game"/>
+            android:label="@string/dudeney_title"/>
         <activity
             android:name=".EvenManiaGameActivity"
             android:screenOrientation="portrait"
-            android:label="Even Mania Game"/>
+            android:label="@string/even_mania_title"/>
         <activity
             android:name=".BasheMenuActivity"
             android:screenOrientation="portrait"
-            android:label="Bachet Game"/>
+            android:label="@string/bachet_title"/>
         <activity
             android:name=".DudeliMenuActivity"
             android:screenOrientation="portrait"
-            android:label="Dudeney Game" />
+            android:label="@string/dudeney_title" />
     </application>
 
 </manifest>

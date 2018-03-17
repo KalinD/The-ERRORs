@@ -24,26 +24,30 @@ public class DudeliMenuActivity extends AppCompatActivity {
     ImageButton mBtnBack;
     @BindView(R.id.tv_game_info_menu2)
     TextView mGameInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dudeli_menu);
         ButterKnife.bind(DudeliMenuActivity.this);
     }
+
     @OnClick(R.id.btn_one_player_menu2)
-    public void OnePlayerGameClicked(){
+    public void OnePlayerGameClicked() {
         Intent intent = new Intent(DudeliMenuActivity.this, DudeliGameActivity.class);
         intent.putExtra("PlayerAmount", 1);
         startActivity(intent);
     }
+
     @OnClick(R.id.btn_two_players_menu2)
-    public void TwoPlayersGameClicked(){
+    public void TwoPlayersGameClicked() {
         Intent intent = new Intent(DudeliMenuActivity.this, DudeliGameActivity.class);
         intent.putExtra("PlayerAmount", 2);
         startActivity(intent);
     }
+
     @OnClick(R.id.btn_back_menu2)
-    public void BackButtonClicked(){
+    public void BackButtonClicked() {
         Intent intent = new Intent(DudeliMenuActivity.this, MainActivity.class);
         startActivity(intent);
     }
@@ -51,7 +55,7 @@ public class DudeliMenuActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(DudeliMenuActivity.this,MainActivity.class);
+        Intent intent = new Intent(DudeliMenuActivity.this, MainActivity.class);
         startActivity(intent);
     }
 

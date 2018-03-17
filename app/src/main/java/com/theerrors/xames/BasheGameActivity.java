@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import java.util.concurrent.TimeUnit;
 
 import java.util.Random;
@@ -26,22 +27,32 @@ public class BasheGameActivity extends AppCompatActivity {
     boolean singlePlayer;
     Random rand = new Random();
 
-    @BindView(R.id.rl_player1) RelativeLayout mRelativeLayout1;
-    @BindView(R.id.rl_player2) RelativeLayout mRelativeLayout2;
+    @BindView(R.id.rl_player1)
+    RelativeLayout mRelativeLayout1;
+    @BindView(R.id.rl_player2)
+    RelativeLayout mRelativeLayout2;
 
-    @BindView(R.id.btn_player1_submit) Button mSubmitBtn1;
-    @BindView(R.id.btn_player2_submit) Button mSubmitBtn2;
+    @BindView(R.id.btn_player1_submit)
+    Button mSubmitBtn1;
+    @BindView(R.id.btn_player2_submit)
+    Button mSubmitBtn2;
 
-    @BindView(R.id.sb_player1) SeekBar mPlayer1Bar;
-    @BindView(R.id.sb_player2) SeekBar mPlayer2Bar;
+    @BindView(R.id.sb_player1)
+    SeekBar mPlayer1Bar;
+    @BindView(R.id.sb_player2)
+    SeekBar mPlayer2Bar;
 
-    @BindView(R.id.tv_player1_points) TextView mPlayer1Points;
-    @BindView(R.id.tv_player2_points) TextView mPlayer2Points;
-    @BindView(R.id.tv_p1_remaining_score) TextView mP1RemainingScore;
-    @BindView(R.id.tv_p2_remaining_score) TextView mP2RemainingScore;
+    @BindView(R.id.tv_player1_points)
+    TextView mPlayer1Points;
+    @BindView(R.id.tv_player2_points)
+    TextView mPlayer2Points;
+    @BindView(R.id.tv_p1_remaining_score)
+    TextView mP1RemainingScore;
+    @BindView(R.id.tv_p2_remaining_score)
+    TextView mP2RemainingScore;
 
-    private void reverseColors(int choice){
-        if(choice == 1){
+    private void reverseColors(int choice) {
+        if (choice == 1) {
             mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mSubmitBtn1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mSubmitBtn1.setTextColor(getResources().getColor(R.color.white));
@@ -53,7 +64,7 @@ public class BasheGameActivity extends AppCompatActivity {
             mSubmitBtn2.setTextColor(getResources().getColor(R.color.colorPrimary));
             mPlayer2Points.setTextColor(getResources().getColor(R.color.colorPrimary));
             mP2RemainingScore.setTextColor(getResources().getColor(R.color.colorPrimary));
-        }else{
+        } else {
             mRelativeLayout2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mSubmitBtn2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mSubmitBtn2.setTextColor(getResources().getColor(R.color.white));
@@ -68,19 +79,20 @@ public class BasheGameActivity extends AppCompatActivity {
         }
 
     }
-    private void checkForAWin(){
-        if(points <= 0){
+
+    private void checkForAWin() {
+        if (points <= 0) {
             mSubmitBtn1.setEnabled(false);
             mSubmitBtn2.setEnabled(false);
             mPlayer1Bar.setEnabled(false);
             mPlayer2Bar.setEnabled(false);
             final AlertDialog.Builder builder = new AlertDialog.Builder(BasheGameActivity.this);
-            builder.setMessage("Red player is the winner!\nCongratulations Red!");
-            builder.setTitle("Game Over!");
-            builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+            builder.setMessage(R.string.win_message);
+            builder.setTitle(R.string.game_over);
+            builder.setNegativeButton(R.string.okay, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent = new Intent(BasheGameActivity.this,BasheMenuActivity.class);
+                    Intent intent = new Intent(BasheGameActivity.this, BasheMenuActivity.class);
                     startActivity(intent);
                 }
             });
@@ -115,38 +127,43 @@ public class BasheGameActivity extends AppCompatActivity {
 
         mPlayer1Bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 mPlayer1Points.setText(Integer.toString(progress + 1));
             }
+
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar){
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
+
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar){
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
         mPlayer2Bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 mPlayer2Points.setText(Integer.toString(progress + 1));
             }
+
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar){
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
+
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar){
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
     }
+
     @OnClick(R.id.btn_player1_submit)
-    public void onSubmitButton1Clicked(){
+    public void onSubmitButton1Clicked() {
         reverseColors(2);
         points -= mPlayer1Bar.getProgress() + 1;
-        if(points < 0 && singlePlayer){
+        if (points < 0 && singlePlayer) {
             reverseColors(1);
         }
         checkForAWin();
@@ -156,17 +173,16 @@ public class BasheGameActivity extends AppCompatActivity {
         mSubmitBtn2.setEnabled(true);
         mPlayer1Bar.setEnabled(false);
         mSubmitBtn1.setEnabled(false);
-        if(singlePlayer){
+        if (singlePlayer) {
             boolean hardMode = rand.nextInt(2) + 1 == 1 ? false : true;
-            if(hardMode){
+            if (hardMode) {
                 mPlayer2Bar.setProgress((mPlayer2Bar.getMax() + 1) - mPlayer1Bar.getProgress());
-            }
-            else{
+            } else {
                 mPlayer2Bar.setProgress(rand.nextInt(5) + 1);
             }
             reverseColors(1);
             points -= mPlayer2Bar.getProgress() + 1;
-            if(points < 0){
+            if (points < 0) {
                 reverseColors(2);
             }
             checkForAWin();
@@ -176,14 +192,14 @@ public class BasheGameActivity extends AppCompatActivity {
             mSubmitBtn2.setEnabled(false);
             mPlayer1Bar.setEnabled(true);
             mSubmitBtn1.setEnabled(true);
-            try{
+            try {
                 Thread.sleep(500);
-            }
-            catch(InterruptedException ex){
+            } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
         }
     }
+
     @OnClick(R.id.btn_player2_submit)
     public void onSubmitButton2Clicked() {
         reverseColors(1);

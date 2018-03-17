@@ -25,22 +25,36 @@ public class DudeliGameActivity extends AppCompatActivity {
     boolean singlePlayer;
     Random rand = new Random();
 
-    @BindView(R.id.rl_player1_game2) RelativeLayout mRelativeLayout1;
-    @BindView(R.id.rl_player2_game2) RelativeLayout mRelativeLayout2;
+    @BindView(R.id.rl_player1_game2)
+    RelativeLayout mRelativeLayout1;
+    @BindView(R.id.rl_player2_game2)
+    RelativeLayout mRelativeLayout2;
 
-    @BindView(R.id.btn_p1_1) Button mBtn1P1;
-    @BindView(R.id.btn_p1_2) Button mBtn2P1;
-    @BindView(R.id.btn_p1_3) Button mBtn3P1;
-    @BindView(R.id.btn_p1_4) Button mBtn4P1;
-    @BindView(R.id.btn_p1_5) Button mBtn5P1;
-    @BindView(R.id.btn_p2_1) Button mBtn1P2;
-    @BindView(R.id.btn_p2_2) Button mBtn2P2;
-    @BindView(R.id.btn_p2_3) Button mBtn3P2;
-    @BindView(R.id.btn_p2_4) Button mBtn4P2;
-    @BindView(R.id.btn_p2_5) Button mBtn5P2;
+    @BindView(R.id.btn_p1_1)
+    Button mBtn1P1;
+    @BindView(R.id.btn_p1_2)
+    Button mBtn2P1;
+    @BindView(R.id.btn_p1_3)
+    Button mBtn3P1;
+    @BindView(R.id.btn_p1_4)
+    Button mBtn4P1;
+    @BindView(R.id.btn_p1_5)
+    Button mBtn5P1;
+    @BindView(R.id.btn_p2_1)
+    Button mBtn1P2;
+    @BindView(R.id.btn_p2_2)
+    Button mBtn2P2;
+    @BindView(R.id.btn_p2_3)
+    Button mBtn3P2;
+    @BindView(R.id.btn_p2_4)
+    Button mBtn4P2;
+    @BindView(R.id.btn_p2_5)
+    Button mBtn5P2;
 
-    @BindView(R.id.tv_player1_points) TextView mP1Points;
-    @BindView(R.id.tv_player2_points) TextView mP2Points;
+    @BindView(R.id.tv_player1_points)
+    TextView mP1Points;
+    @BindView(R.id.tv_player2_points)
+    TextView mP2Points;
 
 
     @Override
@@ -68,10 +82,10 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP1Points.setTextColor(getResources().getColor(R.color.white));
 
 
-
     }
+
     @OnClick(R.id.btn_p1_1)
-    public void OnP1Btn1Clicked(){
+    public void OnP1Btn1Clicked() {
         mBtn1P2.setEnabled(false);
         mBtn2P2.setEnabled(true);
         mBtn3P2.setEnabled(true);
@@ -82,12 +96,13 @@ public class DudeliGameActivity extends AppCompatActivity {
         points += 1;
         mP1Points.setText(Integer.toString(points));
         CheckForWinner();
-        if(singlePlayer){
+        if (singlePlayer) {
             SinglePlayer();
         }
     }
+
     @OnClick(R.id.btn_p1_2)
-    public void OnP1Btn2Clicked(){
+    public void OnP1Btn2Clicked() {
         mBtn2P2.setEnabled(false);
         mBtn1P2.setEnabled(true);
         mBtn3P2.setEnabled(true);
@@ -98,12 +113,13 @@ public class DudeliGameActivity extends AppCompatActivity {
         points += 2;
         mP1Points.setText(Integer.toString(points));
         CheckForWinner();
-        if(singlePlayer){
+        if (singlePlayer) {
             SinglePlayer();
         }
     }
+
     @OnClick(R.id.btn_p1_3)
-    public void OnP1Btn3Clicked(){
+    public void OnP1Btn3Clicked() {
         mBtn3P2.setEnabled(false);
         mBtn2P2.setEnabled(true);
         mBtn1P2.setEnabled(true);
@@ -115,12 +131,13 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP1Points.setText(Integer.toString(points));
         CheckForWinner();
 
-        if(singlePlayer){
+        if (singlePlayer) {
             SinglePlayer();
         }
     }
+
     @OnClick(R.id.btn_p1_4)
-    public void OnP1Btn4Clicked(){
+    public void OnP1Btn4Clicked() {
         mBtn4P2.setEnabled(false);
         mBtn2P2.setEnabled(true);
         mBtn3P2.setEnabled(true);
@@ -131,12 +148,13 @@ public class DudeliGameActivity extends AppCompatActivity {
         points += 4;
         mP1Points.setText(Integer.toString(points));
         CheckForWinner();
-        if(singlePlayer){
+        if (singlePlayer) {
             SinglePlayer();
         }
     }
+
     @OnClick(R.id.btn_p1_5)
-    public void OnP1Btn5Clicked(){
+    public void OnP1Btn5Clicked() {
         mBtn5P2.setEnabled(false);
         mBtn2P2.setEnabled(true);
         mBtn3P2.setEnabled(true);
@@ -147,12 +165,13 @@ public class DudeliGameActivity extends AppCompatActivity {
         points += 5;
         mP1Points.setText(Integer.toString(points));
         CheckForWinner();
-        if(singlePlayer){
+        if (singlePlayer) {
             SinglePlayer();
         }
     }
+
     @OnClick(R.id.btn_p2_1)
-    public void OnP2Btn1Clicked(){
+    public void OnP2Btn1Clicked() {
         mBtn1P1.setEnabled(false);
         mBtn2P1.setEnabled(true);
         mBtn3P1.setEnabled(true);
@@ -164,8 +183,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         CheckForWinner();
     }
+
     @OnClick(R.id.btn_p2_2)
-    public void OnP2Btn2Clicked(){
+    public void OnP2Btn2Clicked() {
         mBtn2P1.setEnabled(false);
         mBtn1P1.setEnabled(true);
         mBtn3P1.setEnabled(true);
@@ -177,8 +197,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         CheckForWinner();
     }
+
     @OnClick(R.id.btn_p2_3)
-    public void OnP2Btn3Clicked(){
+    public void OnP2Btn3Clicked() {
         mBtn3P1.setEnabled(false);
         mBtn2P1.setEnabled(true);
         mBtn1P1.setEnabled(true);
@@ -190,8 +211,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         CheckForWinner();
     }
+
     @OnClick(R.id.btn_p2_4)
-    public void OnP2Btn4Clicked(){
+    public void OnP2Btn4Clicked() {
         mBtn4P1.setEnabled(false);
         mBtn2P1.setEnabled(true);
         mBtn3P1.setEnabled(true);
@@ -203,8 +225,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         CheckForWinner();
     }
+
     @OnClick(R.id.btn_p2_5)
-    public void OnP2Btn5Clicked(){
+    public void OnP2Btn5Clicked() {
         mBtn5P1.setEnabled(false);
         mBtn2P1.setEnabled(true);
         mBtn3P1.setEnabled(true);
@@ -216,68 +239,72 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         CheckForWinner();
     }
-    public void BtnsP1SetDisabled(){
+
+    public void BtnsP1SetDisabled() {
         mBtn1P1.setEnabled(false);
         mBtn2P1.setEnabled(false);
         mBtn3P1.setEnabled(false);
         mBtn4P1.setEnabled(false);
         mBtn5P1.setEnabled(false);
     }
-    public void BtnsP2SetDisabled(){
+
+    public void BtnsP2SetDisabled() {
         mBtn1P2.setEnabled(false);
         mBtn2P2.setEnabled(false);
         mBtn3P2.setEnabled(false);
         mBtn4P2.setEnabled(false);
         mBtn5P2.setEnabled(false);
     }
-    public void CheckForWinner(){
-        if(points == 37){
-            Log.d("String cfw",mP1Points.getText().toString());
-            if(mP1Points.getText().toString() == "37"){
+
+    public void CheckForWinner() {
+        if (points == 37) {
+            Log.d("String cfw", mP1Points.getText().toString());
+            if (mP1Points.getText().toString() == "37") {
                 reverseColors(2);
-            }else{
+            } else {
                 reverseColors(1);
             }
             WinerScreen();
-        }
-        else if(points > 37){
-            if(Integer.parseInt(mP1Points.getText().toString()) > 37){
+        } else if (points > 37) {
+            if (Integer.parseInt(mP1Points.getText().toString()) > 37) {
                 reverseColors(1);
-            }else{
+            } else {
                 reverseColors(2);
             }
             WinerScreen();
         }
 
     }
-    public void WinerScreen(){
+
+    public void WinerScreen() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(DudeliGameActivity.this);
-        builder.setMessage("Red player is the winner!\nCongratulations Red!");
-        builder.setTitle("Game Over!");
-        builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+        builder.setMessage(R.string.win_message);
+        builder.setTitle(R.string.game_over);
+        builder.setNegativeButton(R.string.okay, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(DudeliGameActivity.this,DudeliMenuActivity.class);
+                Intent intent = new Intent(DudeliGameActivity.this, DudeliMenuActivity.class);
                 startActivity(intent);
             }
         });
         AlertDialog endGame = builder.create();
         endGame.show();
     }
-    public void SinglePlayer(){
+
+    public void SinglePlayer() {
         boolean canDoGoodMove = false;
         int lockedBtn = Integer.parseInt(mP1Points.getText().toString()) - Integer.parseInt(mP2Points.getText().toString());
         int btnToPress = 37 - points;
-        if(points + 5 >= 37){
-            if(btnToPress != lockedBtn){
+        if (points + 5 >= 37) {
+            if (btnToPress != lockedBtn) {
                 canDoGoodMove = true;
                 FindBtnToPress(btnToPress);
             }
         }
-        if(!canDoGoodMove){
-            while(true){
+        if (!canDoGoodMove) {
+            while (true) {
                 btnToPress = rand.nextInt(5) + 1;
-                if(btnToPress != lockedBtn){
+                if (btnToPress != lockedBtn) {
                     FindBtnToPress(btnToPress);
                     break;
                 }
@@ -285,8 +312,8 @@ public class DudeliGameActivity extends AppCompatActivity {
         }
     }
 
-    public void FindBtnToPress(int btn){
-        switch (btn){
+    public void FindBtnToPress(int btn) {
+        switch (btn) {
             case 1:
                 OnP2Btn1Clicked();
                 break;
@@ -305,8 +332,8 @@ public class DudeliGameActivity extends AppCompatActivity {
         }
     }
 
-    private void reverseColors(int choice){
-        if(choice == 1){
+    private void reverseColors(int choice) {
+        if (choice == 1) {
             mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mBtn1P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mBtn2P1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -336,7 +363,7 @@ public class DudeliGameActivity extends AppCompatActivity {
             mBtn5P2.setTextColor(getResources().getColor(R.color.colorPrimary));
 
             mP2Points.setTextColor(getResources().getColor(R.color.colorPrimary));
-        }else{
+        } else {
             mRelativeLayout2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mBtn1P2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             mBtn2P2.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
