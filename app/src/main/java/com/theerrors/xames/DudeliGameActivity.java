@@ -1,5 +1,8 @@
 package com.theerrors.xames;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -46,6 +49,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dudeli_main);
         singlePlayer = (getIntent().getExtras().getInt("PlayerAmount") == 1) ? true : false;
         ButterKnife.bind(this);
+        BtnsP2SetDisabled();
         mP1Points.setText(Integer.toString(points));
         mP2Points.setText(Integer.toString(points));
 
@@ -77,9 +81,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP1SetDisabled();
         points += 1;
         mP1Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
         if(singlePlayer){
             SinglePlayer();
         }
@@ -95,9 +97,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP1SetDisabled();
         points += 2;
         mP1Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
         if(singlePlayer){
             SinglePlayer();
         }
@@ -113,9 +113,8 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP1SetDisabled();
         points += 3;
         mP1Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
+
         if(singlePlayer){
             SinglePlayer();
         }
@@ -131,9 +130,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP1SetDisabled();
         points += 4;
         mP1Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
         if(singlePlayer){
             SinglePlayer();
         }
@@ -149,9 +146,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP1SetDisabled();
         points += 5;
         mP1Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
         if(singlePlayer){
             SinglePlayer();
         }
@@ -167,9 +162,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP2SetDisabled();
         points += 1;
         mP2Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
     }
     @OnClick(R.id.btn_p2_2)
     public void OnP2Btn2Clicked(){
@@ -182,9 +175,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP2SetDisabled();
         points += 2;
         mP2Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
     }
     @OnClick(R.id.btn_p2_3)
     public void OnP2Btn3Clicked(){
@@ -197,9 +188,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP2SetDisabled();
         points += 3;
         mP2Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
     }
     @OnClick(R.id.btn_p2_4)
     public void OnP2Btn4Clicked(){
@@ -212,9 +201,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP2SetDisabled();
         points += 4;
         mP2Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
     }
     @OnClick(R.id.btn_p2_5)
     public void OnP2Btn5Clicked(){
@@ -227,9 +214,7 @@ public class DudeliGameActivity extends AppCompatActivity {
         BtnsP2SetDisabled();
         points += 5;
         mP2Points.setText(Integer.toString(points));
-        if(CheckForWinner() != 0){
-            Winner();
-        }
+        CheckForWinner();
     }
     public void BtnsP1SetDisabled(){
         mBtn1P1.setEnabled(false);
@@ -245,24 +230,39 @@ public class DudeliGameActivity extends AppCompatActivity {
         mBtn4P2.setEnabled(false);
         mBtn5P2.setEnabled(false);
     }
-    public int CheckForWinner(){
+    public void CheckForWinner(){
         if(points == 37){
-            if(!mBtn1P1.isEnabled() && !mBtn2P1.isEnabled()){
-                return 2;
+            Log.d("String cfw",mP1Points.getText().toString());
+            if(mP1Points.getText().toString() == "37"){
+                reverseColors(2);
+            }else{
+                reverseColors(1);
             }
-            else{
-                return 1;
-            }
+            WinerScreen();
         }
-        if(points > 37){
-            if(!mBtn1P1.isEnabled() && !mBtn2P1.isEnabled()){
-                return 1;
+        else if(points > 37){
+            if(Integer.parseInt(mP1Points.getText().toString()) > 37){
+                reverseColors(1);
+            }else{
+                reverseColors(2);
             }
-            else{
-                return 2;
-            }
+            WinerScreen();
         }
-        return 0;
+
+    }
+    public void WinerScreen(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DudeliGameActivity.this);
+        builder.setMessage("Red player is the winner!\nCongratulations Red!");
+        builder.setTitle("Game Over!");
+        builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(DudeliGameActivity.this,DudeliMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        AlertDialog endGame = builder.create();
+        endGame.show();
     }
     public void SinglePlayer(){
         boolean canDoGoodMove = false;
@@ -305,10 +305,6 @@ public class DudeliGameActivity extends AppCompatActivity {
         }
     }
 
-    public void Winner() {
-        //TODO winner function
-    }
-
     private void reverseColors(int choice){
         if(choice == 1){
             mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -325,7 +321,6 @@ public class DudeliGameActivity extends AppCompatActivity {
             mBtn5P1.setTextColor(getResources().getColor(R.color.white));
 
             mP1Points.setTextColor(getResources().getColor(R.color.white));
-
 
             mRelativeLayout2.setBackgroundColor(getResources().getColor(R.color.white));
             mBtn1P2.setBackgroundColor(getResources().getColor(R.color.white));
