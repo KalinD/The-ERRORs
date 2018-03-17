@@ -2,6 +2,7 @@ package com.theerrors.xames;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,13 +26,15 @@ public class MainActivity extends AppCompatActivity {
     ImageView mIvGameTwo;
     @BindView(R.id.iv_game_three)
     ImageView getmIvGameThree;
+    MediaPlayer backgroundMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        backgroundMusic = MediaPlayer.create(MainActivity.this, R.raw.tick_tock_game);
         ButterKnife.bind(this);
-
+        backgroundMusic.start();
     }
 
     @OnClick(R.id.iv_game_one)

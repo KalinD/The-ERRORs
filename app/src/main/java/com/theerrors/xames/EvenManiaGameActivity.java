@@ -68,7 +68,7 @@ public class EvenManiaGameActivity extends AppCompatActivity {
     public void onPlayer1Input() {
         choice1 = (EditText) findViewById(R.id.p1_choice);
 
-        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_moving_thing);
+        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_board); //image_moving_thing
 
         String p1Value = choice1.getText().toString();
 
@@ -103,7 +103,7 @@ public class EvenManiaGameActivity extends AppCompatActivity {
 
         choice2 = (EditText) findViewById(R.id.p2_choice);
         String p2Value = choice2.getText().toString();
-        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_moving_thing);
+        ImageView image_moving_thing = (ImageView) findViewById(R.id.image_board); //image_moving_thing
 
         if (p2Value.length() >= 1) {
             p2_choice_num = Integer.parseInt(p2Value);
