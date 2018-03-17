@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,6 +17,8 @@ import butterknife.OnClick;
 // game of dudeli main activity
 public class DudeliGameActivity extends AppCompatActivity {
     int points = 0;
+    boolean singlePlayer;
+    Random rand = new Random();
     @BindView(R.id.btn_p1_1) Button mBtn1P1;
     @BindView(R.id.btn_p1_2) Button mBtn2P1;
     @BindView(R.id.btn_p1_3) Button mBtn3P1;
@@ -32,6 +35,7 @@ public class DudeliGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dudeli_main);
+        singlePlayer = (getIntent().getExtras().getInt("PlayerAmount") == 1) ? true : false;
         ButterKnife.bind(this);
         mP1Points.setText(Integer.toString(points));
         mP2Points.setText(Integer.toString(points));
@@ -119,6 +123,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
+        if(singlePlayer){
+            SinglePlayer();
+        }
     }
     @OnClick(R.id.btn_p2_2)
     public void OnP2Btn2Clicked(){
@@ -132,6 +139,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         if(CheckForWinner() != 0){
             Winner();
+        }
+        if(singlePlayer){
+            SinglePlayer();
         }
     }
     @OnClick(R.id.btn_p2_3)
@@ -147,6 +157,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
+        if(singlePlayer){
+            SinglePlayer();
+        }
     }
     @OnClick(R.id.btn_p2_4)
     public void OnP2Btn4Clicked(){
@@ -161,6 +174,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
+        if(singlePlayer){
+            SinglePlayer();
+        }
     }
     @OnClick(R.id.btn_p2_5)
     public void OnP2Btn5Clicked(){
@@ -174,6 +190,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         if(CheckForWinner() != 0){
             Winner();
+        }
+        if(singlePlayer){
+            SinglePlayer();
         }
     }
     public void BtnsP1SetDisabled(){
@@ -208,6 +227,72 @@ public class DudeliGameActivity extends AppCompatActivity {
             }
         }
         return 0;
+    }
+    public void SinglePlayer(){
+        boolean hardMode = true;//rand.nextInt(2) == 0 ? false : true;
+        boolean canDoGoodMOve = false;
+        if(hardMode){
+            //d = 6
+            int lockedBtn;
+            if(!mBtn1P2.isEnabled()){
+                lockedBtn = 1;
+            }
+            else if(!mBtn2P2.isEnabled()){
+                lockedBtn = 2;
+            }
+            else if(!mBtn3P2.isEnabled()){
+                lockedBtn = 3;
+            }
+            else if(!mBtn4P2.isEnabled()){
+                lockedBtn = 4;
+            }
+            else{
+                lockedBtn = 5;
+            }
+            if(points + 5 >= 37){
+                int toCLick = 37 - points;
+                if(toCLick != lockedBtn){
+                    switch (toCLick) {
+                        case 1:
+                            mBtn1P2.performClick();
+                            break;
+                        case 2:
+                            mBtn2P2.performClick();
+                            break;
+                        case 3:
+                            mBtn3P2.performClick();
+                            break;
+                        case 4:
+                            mBtn4P2.performClick();
+                            break;
+                        case 5:
+                            mBtn5P2.performClick();
+                            break;
+                    }
+                }
+                canDoGoodMOve = true;
+            }
+        }
+        if(!hardMode || !canDoGoodMOve){
+            int btn = rand.nextInt(5) + 1;
+            switch (btn){
+                case 1:
+                    mBtn1P2.performClick();
+                    break;
+                case 2:
+                    mBtn2P2.performClick();
+                    break;
+                case 3:
+                    mBtn3P2.performClick();
+                    break;
+                case 4:
+                    mBtn4P2.performClick();
+                    break;
+                case 5:
+                    mBtn5P2.performClick();
+                    break;
+            }
+        }
     }
     public void Winner() {
         //TODO winner function

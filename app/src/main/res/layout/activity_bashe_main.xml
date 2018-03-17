@@ -7,57 +7,6 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/rl_player1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/white">
-
-        <SeekBar
-            android:id="@+id/sb_player1"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="26dp" />
-
-        <TextView
-            android:id="@+id/tv_player1_points"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sb_player1"
-            android:layout_centerHorizontal="true"
-            android:rotation="180"
-            android:text="5"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/btn_player1_submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_player1_points"
-            android:layout_centerHorizontal="true"
-            android:rotation="180"
-            android:text="@string/go"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="@color/white"
-            android:textSize="36sp"/>
-
-        <TextView
-            android:id="@+id/tv_p1_remaining_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btn_player1_submit"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="64dp"
-            android:rotation="180"
-            android:text="21"
-            android:textSize="36sp"
-            android:textColor="@color/colorPrimaryDark"/>
-    </RelativeLayout>
-
-    <RelativeLayout
         android:id="@+id/rl_player2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -69,15 +18,19 @@
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="26dp" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:rotation="180"
+            android:layout_marginTop="26dp" />
 
         <TextView
             android:id="@+id/tv_player2_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/sb_player2"
+            android:layout_below="@+id/sb_player2"
             android:layout_centerHorizontal="true"
+            android:rotation="180"
             android:text="5"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
@@ -86,7 +39,57 @@
             android:id="@+id/btn_player2_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/tv_player2_points"
+            android:layout_below="@+id/tv_player2_points"
+            android:layout_centerHorizontal="true"
+            android:rotation="180"
+            android:text="@string/go"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@color/white"
+            android:textSize="36sp"/>
+
+        <TextView
+            android:id="@+id/tv_p2_remaining_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_player2_submit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="64dp"
+            android:rotation="180"
+            android:text="21"
+            android:textSize="36sp"
+            android:textColor="@color/colorPrimaryDark"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_player1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+        <SeekBar
+            android:id="@+id/sb_player1"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="26dp" />
+
+        <TextView
+            android:id="@+id/tv_player1_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/sb_player1"
+            android:layout_centerHorizontal="true"
+            android:text="5"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_player1_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_player1_points"
             android:layout_centerHorizontal="true"
             android:text="@string/go"
             android:textColor="@color/colorPrimaryDark"
@@ -95,10 +98,10 @@
             />
 
         <TextView
-            android:id="@+id/tv_p2_remaining_score"
+            android:id="@+id/tv_p1_remaining_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btn_player2_submit"
+            android:layout_above="@+id/btn_player1_submit"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="64dp"
             android:textColor="@color/colorPrimaryDark"

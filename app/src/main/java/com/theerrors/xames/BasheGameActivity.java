@@ -83,7 +83,6 @@ public class BasheGameActivity extends AppCompatActivity {
             });
             AlertDialog endGame = builder.create();
             endGame.show();
-
         }
 
     }
@@ -92,7 +91,6 @@ public class BasheGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bashe_main);
         ButterKnife.bind(this);
-
         mRelativeLayout1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         mSubmitBtn1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         mSubmitBtn1.setTextColor(getResources().getColor(R.color.white));
@@ -179,10 +177,8 @@ public class BasheGameActivity extends AppCompatActivity {
     }
     @OnClick(R.id.btn_player2_submit)
     public void onSubmitButton2Clicked() {
-       reverseColors(1);
-
+        reverseColors(1);
         points -= mPlayer2Bar.getProgress() + 1;
-
         checkForAWin();
         mP1RemainingScore.setText(Integer.toString(Math.max(0, points)));
         mP2RemainingScore.setText(Integer.toString(Math.max(0, points)));
