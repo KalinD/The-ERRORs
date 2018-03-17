@@ -2,6 +2,7 @@ package com.theerrors.xames;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -53,6 +54,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
+        if(singlePlayer){
+            SinglePlayer();
+        }
     }
     @OnClick(R.id.btn_p1_2)
     public void OnP1Btn2Clicked(){
@@ -66,6 +70,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP1Points.setText(Integer.toString(points));
         if(CheckForWinner() != 0){
             Winner();
+        }
+        if(singlePlayer){
+            SinglePlayer();
         }
     }
     @OnClick(R.id.btn_p1_3)
@@ -81,6 +88,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
+        if(singlePlayer){
+            SinglePlayer();
+        }
     }
     @OnClick(R.id.btn_p1_4)
     public void OnP1Btn4Clicked(){
@@ -94,6 +104,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP1Points.setText(Integer.toString(points));
         if(CheckForWinner() != 0){
             Winner();
+        }
+        if(singlePlayer){
+            SinglePlayer();
         }
     }
     @OnClick(R.id.btn_p1_5)
@@ -109,6 +122,9 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
+        if(singlePlayer){
+            SinglePlayer();
+        }
     }
     @OnClick(R.id.btn_p2_1)
     public void OnP2Btn1Clicked(){
@@ -122,9 +138,6 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         if(CheckForWinner() != 0){
             Winner();
-        }
-        if(singlePlayer){
-            SinglePlayer();
         }
     }
     @OnClick(R.id.btn_p2_2)
@@ -140,9 +153,6 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
-        if(singlePlayer){
-            SinglePlayer();
-        }
     }
     @OnClick(R.id.btn_p2_3)
     public void OnP2Btn3Clicked(){
@@ -156,9 +166,6 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         if(CheckForWinner() != 0){
             Winner();
-        }
-        if(singlePlayer){
-            SinglePlayer();
         }
     }
     @OnClick(R.id.btn_p2_4)
@@ -174,9 +181,6 @@ public class DudeliGameActivity extends AppCompatActivity {
         if(CheckForWinner() != 0){
             Winner();
         }
-        if(singlePlayer){
-            SinglePlayer();
-        }
     }
     @OnClick(R.id.btn_p2_5)
     public void OnP2Btn5Clicked(){
@@ -190,9 +194,6 @@ public class DudeliGameActivity extends AppCompatActivity {
         mP2Points.setText(Integer.toString(points));
         if(CheckForWinner() != 0){
             Winner();
-        }
-        if(singlePlayer){
-            SinglePlayer();
         }
     }
     public void BtnsP1SetDisabled(){
@@ -229,71 +230,46 @@ public class DudeliGameActivity extends AppCompatActivity {
         return 0;
     }
     public void SinglePlayer(){
-        boolean hardMode = true;//rand.nextInt(2) == 0 ? false : true;
-        boolean canDoGoodMOve = false;
-        if(hardMode){
-            //d = 6
-            int lockedBtn;
-            if(!mBtn1P2.isEnabled()){
-                lockedBtn = 1;
-            }
-            else if(!mBtn2P2.isEnabled()){
-                lockedBtn = 2;
-            }
-            else if(!mBtn3P2.isEnabled()){
-                lockedBtn = 3;
-            }
-            else if(!mBtn4P2.isEnabled()){
-                lockedBtn = 4;
-            }
-            else{
-                lockedBtn = 5;
-            }
-            if(points + 5 >= 37){
-                int toCLick = 37 - points;
-                if(toCLick != lockedBtn){
-                    switch (toCLick) {
-                        case 1:
-                            mBtn1P2.performClick();
-                            break;
-                        case 2:
-                            mBtn2P2.performClick();
-                            break;
-                        case 3:
-                            mBtn3P2.performClick();
-                            break;
-                        case 4:
-                            mBtn4P2.performClick();
-                            break;
-                        case 5:
-                            mBtn5P2.performClick();
-                            break;
-                    }
-                }
-                canDoGoodMOve = true;
+        boolean canDoGoodMove = false;
+        int lockedBtn = Integer.parseInt(mP1Points.getText().toString()) - Integer.parseInt(mP2Points.getText().toString());
+        int btnToPress = 37 - points;
+        if(points + 5 >= 37){
+            if(btnToPress != lockedBtn){
+                canDoGoodMove = true;
+                FindBtnToPress(btnToPress);
             }
         }
-        if(!hardMode || !canDoGoodMOve){
-            int btn = rand.nextInt(5) + 1;
-            switch (btn){
-                case 1:
-                    mBtn1P2.performClick();
+        if(!canDoGoodMove){
+            while(true){
+                btnToPress = rand.nextInt(5) + 1;
+                if(btnToPress != lockedBtn){
+                    FindBtnToPress(btnToPress);
                     break;
-                case 2:
-                    mBtn2P2.performClick();
-                    break;
-                case 3:
-                    mBtn3P2.performClick();
-                    break;
-                case 4:
-                    mBtn4P2.performClick();
-                    break;
-                case 5:
-                    mBtn5P2.performClick();
-                    break;
+                }
             }
         }
     }
+
+    public void FindBtnToPress(int btn){
+        switch (btn){
+            case 1:
+                OnP2Btn1Clicked();
+                break;
+            case 2:
+                OnP2Btn2Clicked();
+                break;
+            case 3:
+                OnP2Btn3Clicked();
+                break;
+            case 4:
+                OnP2Btn4Clicked();
+                break;
+            case 5:
+                OnP2Btn5Clicked();
+                break;
+        }
+    }
+
     public void Winner() {
         //TODO winner function
     }
