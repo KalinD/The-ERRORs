@@ -2,6 +2,7 @@ package com.theerrors.xames;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -71,16 +72,16 @@ public class EvenManiaGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_even_mania_main);
         ButterKnife.bind(this);
         p2_choice.setEnabled(false);
-
+        p1_choice.setBackgroundColor(Color.WHITE);
+        p1_choice.setTextColor(Color.RED);
+        p2_choice.setTextColor(Color.RED);
     }
 
     @OnClick(R.id.p1_choice)
     public void onPlayer1Input() {
         choice1 = (EditText) findViewById(R.id.p1_choice);
 
-
         ImageView image_moving_thing = (ImageView) findViewById(R.id.image_moving_thing); //image_moving_thing
-
 
         String p1Value = choice1.getText().toString();
 
@@ -105,6 +106,11 @@ public class EvenManiaGameActivity extends AppCompatActivity {
 
             CheckWin();
             image_moving_thing.startAnimation(move);
+
+            p1_choice.setBackgroundColor(Color.RED);
+            p2_choice.setText(null);
+            p2_choice.requestFocus();
+            p2_choice.setBackgroundColor(Color.WHITE);
             p1_choice.setEnabled(false);
             p2_choice.setEnabled(true);
         }
@@ -139,6 +145,10 @@ public class EvenManiaGameActivity extends AppCompatActivity {
             }
 
             CheckWin();
+            p1_choice.setBackgroundColor(Color.WHITE);
+            p2_choice.setBackgroundColor(Color.RED);
+            p1_choice.setText(null);
+            p1_choice.requestFocus();
             p1_choice.setEnabled(true);
             p2_choice.setEnabled(false);
             image_moving_thing.startAnimation(move);

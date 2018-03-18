@@ -23,7 +23,7 @@ public class BasheMenuActivity extends AppCompatActivity {
     @BindView(R.id.btn_two_players)
     Button mBtnTwoPlayers;
     @BindView(R.id.btn_back)
-    ImageButton mBtnBack;
+    ImageButton mBtnBack;   
 
     @BindView(R.id.tv_game_info)
     TextView mGameInfo;
