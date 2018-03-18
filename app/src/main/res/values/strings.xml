@@ -9,7 +9,7 @@
     <string name="two_players">2 Players</string>
     <string name="game_over">Game Over!</string>
     <string name="okay">Okay</string>
-    <string name="win_message">Red player is the winner!
+    <string name="win_message">Current Red player is the winner!
                                 Congratulations Red!</string>
 
     <string name="BachetInfo">"Bachet game is named after a french mathematician, poet and translator - Claude Gaspard Bachet de Méziriac (1581 - 1638).
