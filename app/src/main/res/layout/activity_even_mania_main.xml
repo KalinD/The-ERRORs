@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012">
+        app:layout_constraintVertical_bias="0.41000003">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/Board_helper"
@@ -38,7 +38,6 @@
             android:gravity="center_vertical|center_horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.23"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.507">
@@ -50,9 +49,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp"
                 android:adjustViewBounds="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/graph15" />
 
             <ImageView

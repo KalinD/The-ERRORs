@@ -56,7 +56,7 @@ public class EvenManiaGameActivity extends AppCompatActivity {
             builder.setNegativeButton(R.string.okay, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent = new Intent(EvenManiaGameActivity.this, EvenManiaGameActivity.class);
+                    Intent intent = new Intent(EvenManiaGameActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
             });
