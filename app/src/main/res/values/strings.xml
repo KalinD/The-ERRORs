@@ -3,12 +3,15 @@
     <string name="bachet_title">Bachet Game</string>
     <string name="dudeney_title">Dudeney Game</string>
     <string name="even_mania_title">Even Mania Game</string>
+    <string name="player1_wins">Player 1 wins!</string>
+    <string name="player2_wins">Player 2 wins!</string>
+    <string name="we_have_winner">We have a winner!</string>
     <string name="logic_wall">Wall Of Logic</string>
     <string name="go">Go!</string>
     <string name="one_player">1 Player</string>
     <string name="two_players">2 Players</string>
     <string name="game_over">Game Over!</string>
-    <string name="okay">Okay</string>
+    <string name="okay">Back</string>
     <string name="win_message">Current Red player is the winner!
                                 Congratulations Red!</string>
 

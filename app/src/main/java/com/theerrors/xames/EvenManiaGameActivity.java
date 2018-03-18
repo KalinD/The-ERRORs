@@ -48,12 +48,12 @@ public class EvenManiaGameActivity extends AppCompatActivity {
         if (moving_thing_x - moving_thing_y >= boundary_value * one_graphBox_size) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(EvenManiaGameActivity.this);
             if((moving_thing_x / one_graphBox_size) % 2 == 0){
-                builder.setMessage("Player 1 wins!!");
+                builder.setMessage(R.string.player1_wins);
             }else if((moving_thing_y / one_graphBox_size)% 2 == 0){
-                builder.setMessage("Player 2 wins!!");
+                builder.setMessage(R.string.player2_wins);
             }
-            builder.setTitle("We have a winner!");
-            builder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+            builder.setTitle(R.string.we_have_winner);
+            builder.setNegativeButton(R.string.okay, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     Intent intent = new Intent(EvenManiaGameActivity.this, MainActivity.class);
