@@ -24,4 +24,5 @@
         The game is played mainly by two players. A player looses when on his turn the score becomes more than 37.
         And a player wins when on his turn the score becomes exactly 37.
     </string>
+    <string name="coming_soon">More games coming soon...</string>
 </resources>

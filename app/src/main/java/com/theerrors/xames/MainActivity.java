@@ -1,5 +1,6 @@
 package com.theerrors.xames;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
@@ -11,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import java.util.Locale;
@@ -20,12 +22,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+
     @BindView(R.id.iv_game_one)
     ImageView mIvGameOne;
     @BindView(R.id.iv_game_two)
     ImageView mIvGameTwo;
     @BindView(R.id.iv_game_three)
-    ImageView getmIvGameThree;
+    ImageView mIvGameThree;
+    @BindView(R.id.iv_game_four)
+    ImageView mIvGameFour;
     MediaPlayer backgroundMusic;
 
     @Override
@@ -55,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EvenManiaGameActivity.class);
         startActivity(intent);
     }
-
+    @OnClick(R.id.iv_game_four)
+    public void OnClickImageFour() {
+        Context context = getApplicationContext();
+        Toast msg = Toast.makeText(context,R.string.coming_soon,Toast.LENGTH_LONG);
+        msg.show();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -77,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(MainActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("Music playing","Music is already playing!");
             startActivity(intent);
         }else{
             String languageToLoad  = "en";
@@ -88,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(MainActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("Music playing","Music is already playing!");
             startActivity(intent);
 
         }

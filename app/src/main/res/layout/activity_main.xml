@@ -140,20 +140,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="68dp"
-                        android:background="@color/colorAccent"
                         android:clickable="true"
                         android:minHeight="300dp"
-                        android:minWidth="200dp" />
+                        android:minWidth="200dp"
+                        android:src="@drawable/coming_soon"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="cursive"
-                        android:text="Some name"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="26sp"
-                        android:textStyle="bold" />
+                   
 
 
                 </LinearLayout>
